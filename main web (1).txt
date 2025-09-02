@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Backroad Hearts — Chris, Braden & Jacob’s Story</title>
+  <meta name="description" content="The heartfelt love story of Chris, Braden, and Jacob—three men from Meeker, Oklahoma, finding love against the odds." />
+
+  <style>
+    body { margin: 0; font-family: Georgia, 'Times New Roman', serif; background: #fffaf5; color: #2d2d2d; line-height: 1.6; }
+    a { color: #8b0000; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header { background: linear-gradient(135deg, #8b0000, #cd5c5c); padding: 1rem; color: white; text-align: center; }
+    header h1 { margin: 0; font-family: 'Brush Script MT', cursive; font-size: 3rem; }
+    header p { margin: 0.5rem 0 0; font-style: italic; }
+
+    nav { margin-top: 1rem; }
+    nav a { margin: 0 1rem; font-weight: bold; }
+
+    main { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+    .post { background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+    .post h2 { margin-top: 0; color: #8b0000; }
+    .post time { font-size: 0.9rem; color: #666; }
+
+    .about { background: #fddede; padding: 2rem; border-radius: 12px; text-align: center; margin-bottom: 2rem; }
+    .about h2 { margin-top: 0; font-family: 'Brush Script MT', cursive; color: #8b0000; font-size: 2rem; }
+
+    .contact { background: #ffe4e1; padding: 2rem; border-radius: 12px; text-align: center; }
+    .contact h2 { margin-top: 0; color: #8b0000; }
+    .contact form { display: grid; gap: 1rem; max-width: 500px; margin: auto; }
+    input, textarea { padding: 0.8rem; border: 1px solid #ccc; border-radius: 8px; font-size: 1rem; }
+    button { background: #8b0000; color: white; padding: 0.8rem; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer; }
+    button:hover { background: #600000; }
+
+    footer { text-align: center; padding: 1.5rem; margin-top: 3rem; color: #666; background: #f8f1f3; }
+
+    .upload { background: #fff; border: 2px dashed #aaa; border-radius: 12px; padding: 2rem; text-align: center; margin-bottom: 2rem; }
+    .upload input[type="file"] { margin-top: 1rem; }
+
+    .parents { background: #fff0f0; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; }
+    .parents h2 { color: #8b0000; }
+    .parent { margin-bottom: 1.5rem; }
+    .parent input[type="file"] { margin-top: 0.5rem; }
+    .caption { margin-top: 0.5rem; font-style: italic; color: #444; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Backroad Hearts</h1>
+    <p>The Love Story of Chris, Braden & Jacob — From Meeker, Oklahoma</p>
+    <nav>
+      <a href="#story">Our Story</a>
+      <a href="#uploads">Photos</a>
+      <a href="#about">About Us</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="story" class="post">
+      <h2>How We Met</h2>
+      <time datetime="2025-09-01">September 1, 2025</time>
+      <p>Chris and Braden grew up just a few dirt roads apart in Meeker, Oklahoma. They knew each other from church potlucks, rodeos, and Friday night football games. Jacob came later, moving to town after his folks bought a little ranch on the edge of the county. What started as friendly nods at the feed store turned into long conversations, and soon, the three of them found themselves inseparable.</p>
+      <p>At first, it was just laughter by the firepit and weekends fixing fences together. But in the quiet moments—when the stars stretched wide across the prairie sky—they felt something deeper. Something that didn’t quite fit the mold of what their community expected of them. They wrestled with it, prayed on it, and worried about what folks might say. In the South, and especially in small-town Oklahoma, love like theirs wasn’t something people talked about openly.</p>
+      <p>But love has a way of breaking through shame and silence. Chris, Braden, and Jacob realized that what they had was too honest, too steady, and too true to hide. Their bond grew stronger with every shared sunrise over the hayfields, every muddy truck ride, every song sung out of tune around the fire. Together, they chose love over fear, and in that choice, they found freedom.</p>
+    </section>
+
+    <section id="uploads" class="upload">
+      <h2>Share Our Journey</h2>
+      <p>Here’s where we’ll add photos of our life together—whether it’s fishing trips, county fairs, or just a quiet night on the porch.</p>
+      <input id="photoUpload" type="file" accept="image/*" multiple />
+      <textarea id="memoryText" placeholder="Write about your favorite memory…" rows="5"></textarea>
+      <button onclick="saveEntry()">Save Entry</button>
+      <div id="entries"></div>
+    </section>
+
+    <section id="about" class="parents">
+      <h2>About Us & Our Families</h2>
+      <div class="parent">
+        <h3>Chris’s Parents</h3>
+        <input id="chrisParents" type="file" accept="image/*" />
+        <input id="chrisCaption" type="text" placeholder="Write a caption..." />
+        <div id="chrisPreview"></div>
+      </div>
+      <div class="parent">
+        <h3>Braden’s Parents</h3>
+        <input id="bradenParents" type="file" accept="image/*" />
+        <input id="bradenCaption" type="text" placeholder="Write a caption..." />
+        <div id="bradenPreview"></div>
+      </div>
+      <div class="parent">
+        <h3>Jacob’s Parents</h3>
+        <input id="jacobParents" type="file" accept="image/*" />
+        <input id="jacobCaption" type="text" placeholder="Write a caption..." />
+        <div id="jacobPreview"></div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Get in Touch</h2>
+      <p>If our story resonates with you, we’d love to hear from you. Send us a message below:</p>
+      <form>
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" rows="5" placeholder="Write your message..." required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Backroad Hearts — Chris, Braden & Jacob</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function saveEntry() {
+      const text = document.getElementById('memoryText').value;
+      if (!text.trim()) return;
+      const entries = JSON.parse(localStorage.getItem('entries')) || [];
+      entries.push({ id: Date.now(), text, date: new Date().toLocaleString() });
+      localStorage.setItem('entries', JSON.stringify(entries));
+      document.getElementById('memoryText').value = '';
+      renderEntries();
+    }
+
+    function deleteEntry(id) {
+      let entries = JSON.parse(localStorage.getItem('entries')) || [];
+      entries = entries.filter(e => e.id !== id);
+      localStorage.setItem('entries', JSON.stringify(entries));
+      renderEntries();
+    }
+
+    function editEntry(id) {
+      let entries = JSON.parse(localStorage.getItem('entries')) || [];
+      const entry = entries.find(e => e.id === id);
+      if (entry) {
+        const newText = prompt('Edit your memory:', entry.text);
+        if (newText !== null) {
+          entry.text = newText;
+          localStorage.setItem('entries', JSON.stringify(entries));
+          renderEntries();
+        }
+      }
+    }
+
+    function renderEntries() {
+      const entries = JSON.parse(localStorage.getItem('entries')) || [];
+      const container = document.getElementById('entries');
+      container.innerHTML = '';
+      entries.forEach(e => {
+        const div = document.createElement('div');
+        div.className = 'post';
+        div.innerHTML = `<p>${e.text}</p><small>${e.date}</small>`;
+
+        const controls = document.createElement('div');
+        controls.className = 'entry-controls';
+        controls.innerHTML = `
+          <button onclick="editEntry(${e.id})">Edit</button>
+          <button onclick="deleteEntry(${e.id})">Delete</button>
+        `;
+        div.appendChild(controls);
+
+        container.appendChild(div);
+      });
+    }
+
+    renderEntries();
+
+    function handleParent(inputId, captionId, previewId, storageKey) {
+      const input = document.getElementById(inputId);
+      const captionInput = document.getElementById(captionId);
+      const preview = document.getElementById(previewId);
+
+      input.addEventListener('change', () => {
+        const file = input.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = () => {
+            localStorage.setItem(storageKey + '_photo', reader.result);
+            renderParent(previewId, storageKey);
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+
+      captionInput.addEventListener('input', () => {
+        localStorage.setItem(storageKey + '_caption', captionInput.value);
+        renderParent(previewId, storageKey);
+      });
+
+      renderParent(previewId, storageKey);
+    }
+
+    function renderParent(previewId, storageKey) {
+      const preview = document.getElementById(previewId);
+      const dataUrl = localStorage.getItem(storageKey + '_photo');
+      const caption = localStorage.getItem(storageKey + '_caption') || '';
+      preview.innerHTML = '';
+      if (dataUrl) {
+        preview.innerHTML = `<img src="${dataUrl}" style="max-width:100%; border-radius:8px; margin-top:0.5rem;" />`;
+      }
+      if (caption) {
+        const cap = document.createElement('div');
+        cap.className = 'caption';
+        cap.textContent = caption;
+        preview.appendChild(cap);
+      }
+    }
+
+    handleParent('chrisParents', 'chrisCaption', 'chrisPreview', 'chrisParents');
+    handleParent('bradenParents', 'bradenCaption', 'bradenPreview', 'bradenParents');
+    handleParent('jacobParents', 'jacobCaption', 'jacobPreview', 'jacobParents');
+  </script>
+</body>
+</html>
